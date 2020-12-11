@@ -1,0 +1,24 @@
+{% extends 'catalogo/index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class=" card-content row center-xs">
+        {% if list_product %}
+            {% for product in list_product %}
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="cart card-product ">
+                        <img loading='lazy' src="{{ product.img.url }}" alt="">
+                        <h3>Nombre</h3>
+                        <p>Precio: {{ product.presio }}</p>
+                        <button type="button" class="btn btn-success">Agregar</button>
+                    </div>
+                </div>  
+            {% endfor %} 
+        {% endif %} 
+    </div>       
+{% endblock %}
+<!--   <div class="card">
+                                <img src="{{ product.img.url }}" alt="">
+                                <h3>titulo</h3>
+                                <p>Precio</p>
+                            </div>-->

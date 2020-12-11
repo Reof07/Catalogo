@@ -1,0 +1,6 @@
+<h4>hola</h4>
+{% for tienda in tiendas %}
+<h1>{{ tienda.nombre }}</h1>
+<img src="{{ tienda.logo.url }}" alt="">
+<p>descripcion: {{ tienda.descripcion}}</p>
+{% endfor %}

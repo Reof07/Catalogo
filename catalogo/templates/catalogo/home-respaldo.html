@@ -1,0 +1,38 @@
+
+{% extends 'catalogo/index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row  main">
+            <div class="col-xs-10 col-sm-6 col-md-4 product">
+                <div class="cards">
+                    {% if list_product %}
+                        {% for product in list_product %}
+                            <div class="card">
+                                <div class="text">
+                                    <img src="{{ product.img.url }}" alt="">
+                                    <p>Precio: {{ product.presio }}</p>
+                                    {% if product.deliveri == 'yes' %}
+                                        <span class="badge badge-pill badge-success"><p>Delivery:  {{ product.delivery }}</p></span>
+                                    {% elif product.delivery == 'not' %}
+                                       <span class="badge badge-pill badge-danger"><p>Delivery:  {{ product.delivery }}</p></span>
+                                    {% endif %}
+                                    {% if product.pick_up == 'yes' %}
+                                        <span class="badge badge-pill badge-success"><p>Pick Up:  {{ product.pick_up }}</p></span>
+                                    {% elif product.pick_up == 'not' %}
+                                        <span class="badge badge-pill badge-danger"><p>Pick Up:  {{ product.pick_up }}</p></span>
+                                    {% endif %}
+                                    <div class="review">
+                                        <i class="fas fa-heart"></i>
+                                        <i class="fas fa-heart"></i>
+                                        <i class="fas fa-heart"></i>
+                                        <i class="fas fa-heart"></i>
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-info" role="button">Solicitar</a>
+                            </div>
+                         {% endfor %}
+                    {% endif %}
+            </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Upload</button>
+</form>
+
+{% if product_obj %}
+<h3> Succesfully uploaded: {{ product_obj.name }}</h3>
+<img src=" {{ product_obj.img.url }}" alt="img">
+{% endif %}
